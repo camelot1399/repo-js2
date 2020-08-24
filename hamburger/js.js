@@ -8,6 +8,8 @@ class Hamburger {
 
         this.getToppings();
         this.getStuffing(stuffing);
+        this.calculatePrice();
+        this.calculateCalories();
 
 
     }
