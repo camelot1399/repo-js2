@@ -7,7 +7,8 @@ class Hamburger {
         this.calories = calories;
 
         this.getToppings();
-        this.add();
+        this.getStuffing(stuffing);
+
 
     }
     addTopping(id) { 
@@ -30,30 +31,27 @@ class Hamburger {
     getSize() {
         return this.size;
     }              
-    getStuffing() {
-        return this.stuffing;    
+    getStuffing(id) {
+        let find = this.toppings.find(el => el.id == id);
+        this.stuffing.push(find);
     }          
     calculatePrice() {
+        let totalPrice = document.querySelector('#totalPrice'); 
         let price = this.stuffing.reduce( (total, el) => {
             return total + el.price;
         }, this.price);
-        console.log(price);
-        
+
+        totalPrice.innerHTML = price;
     }       
     calculateCalories() {
+        let totalCalories = document.querySelector('#totalCalories'); 
         let calories = this.stuffing.reduce( (total, el) => {
             return total + el.calories;
         }, this.calories);
-        console.log(calories);
-    }
-    add() {
-        this.addTopping(2);
-        this.addTopping(3);
-        this.calculatePrice();
-        this.calculateCalories();
+        totalCalories.innerHTML = calories;
     }
 
 }
 
-let big = new Hamburger('big', 100,  'sol', 40);
-let small = new Hamburger('small', 50,  'sol', 20);
+let big = new Hamburger('big', 100, 2, 40);
+let small = new Hamburger('small', 50, 2, 20);
