@@ -2,19 +2,22 @@ class Hamburger {
     constructor(size, price, stuffing, calories) {
         this.size = size;
         this.price = price;
-        this.toppings = [];
-        this.haveTopping = [];
-        this.stuffing = [];
+        this.toppings = []; // список возможных добавов
+        this.stuffing = []; // начинка бургера
         this.calories = calories;
 
         this.getToppings();
+        this.add();
+
     }
         
-    addTopping(topping) { 
-    // Добавить добавку
+    addTopping(id) { 
+        let find = this.toppings.find(el => el.id == id);
+        this.stuffing.push(find);
     }    
-    removeTopping(topping) {
-    // Убрать добавку
+    removeTopping(id) {
+        let index = this.stuffing.findIndex(el => el.id == id);
+        if (index !== -1) this.stuffing.splice(index, 1);
     } 
     getToppings(topping) {
         this.toppings = [
@@ -32,11 +35,21 @@ class Hamburger {
         return this.stuffing;    
     }          
     calculatePrice() {
-        return this.price;
+        let price = this.stuffing.reduce( (total, el) => {
+            return total + el.price;
+        }, this.price);
+        console.log(price);
+        
     }       
     calculateCalories() {
         return this.calories;
-    }    
+    }
+
+    add() {
+        this.addTopping(2);
+        this.addTopping(3);
+        this.calculatePrice();
+    }
 
 }
 
