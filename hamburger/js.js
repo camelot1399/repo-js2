@@ -5,13 +5,21 @@ class Hamburger {
         this.toppings = []; // список возможных добавов
         this.stuffing = []; // начинка бургера
         this.calories = calories;
+        this.toppingsList = document.querySelector('#toppingsList');
+        this.handleActions();
 
         this.getToppings();
         this.getStuffing(stuffing);
         this.calculatePrice();
         this.calculateCalories();
-
-
+    }
+    handleActions() {
+        this.toppingsList.addEventListener('click', event => {
+            if (event.target.dataset.control == 'control') {
+                console.log(event.target.dataset.id);
+            }
+            
+        });
     }
     addTopping(id) { 
         let find = this.toppings.find(el => el.id == id);
@@ -56,4 +64,4 @@ class Hamburger {
 }
 
 let big = new Hamburger('big', 100, 2, 40);
-let small = new Hamburger('small', 50, 2, 20);
+// let small = new Hamburger('small', 50, 2, 20);
