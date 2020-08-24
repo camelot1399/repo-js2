@@ -10,7 +10,6 @@ class Hamburger {
         this.add();
 
     }
-        
     addTopping(id) { 
         let find = this.toppings.find(el => el.id == id);
         this.stuffing.push(find);
@@ -42,13 +41,16 @@ class Hamburger {
         
     }       
     calculateCalories() {
-        return this.calories;
+        let calories = this.stuffing.reduce( (total, el) => {
+            return total + el.calories;
+        }, this.calories);
+        console.log(calories);
     }
-
     add() {
         this.addTopping(2);
         this.addTopping(3);
         this.calculatePrice();
+        this.calculateCalories();
     }
 
 }
