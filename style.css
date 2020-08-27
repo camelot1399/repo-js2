@@ -66,3 +66,15 @@ body {
     font-size: 13px;
     line-height: 2rem;
 }
+
+
+#basket {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.basket__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

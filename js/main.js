@@ -1,3 +1,31 @@
+const API = 'https://raw.githubusercontent.com/camelot1399/static/master';
+
+let getRequest = (url) => {
+  return new Promise( (resolve, reject) => {
+    setTimeout( () => {
+      if (url) {
+        resolve(url);
+      } else {
+        reject('no url');
+      }
+    }, 1000);
+  });
+
+  // let xhr = new XMLHttpRequest();
+  // xhr.open('GET', url, true);
+
+  // xhr.onreadystatechange = () => {
+  //     if (xhr.readyState !== 4) return;
+  //     if (xhr.status !== 200) {
+  //         console.log(`Ошибка ${xhr.status} ${xhr.statusText}`);
+  //     } else {
+  //         cd(xhr.responseText);
+  //     }
+  // }
+
+  // xhr.send();
+}
+
 class ProductList {
   constructor(container = '.products') {
     this.container = container;
@@ -6,7 +34,11 @@ class ProductList {
     this.linkToBasket = document.querySelector('#basket');
     this.productList = document.querySelector('.products');
     this.#fetchGoods();
-    this.#render();
+    // this.getProducts()
+    //   .then((data) => {
+    //     this.goods = [...data];
+    //     this.#render();
+    // });
     this.calcGoods();
     this.#handleAction();
   }
@@ -17,14 +49,66 @@ class ProductList {
     }, 0);
     console.log(this.summ);
   }
+  // getProducts() {
+  //   return fetch(`${API}/CatalogTovarov.json`)
+  //   .then(result => result.json())
+  //   .catch(error => {
+  //     console.log(error);
+  //   });
+  // }
+  // #fetchGoods() {
+  //   getRequest(`${API}/CatalogTovarov.json`, (data) => {
+  //     // this.#render();
+  //   })
+  //   .then((data) => {
+  //     this.goods = JSON.parse(data);
+  //     console.log(this.goods);
+      
+  //   })
+  //   .then(() => {
+  //     let xhr = new XMLHttpRequest();
+  //     xhr.open('GET', url, true);
+
+  //     xhr.onreadystatechange = () => {
+  //         if (xhr.readyState !== 4) return;
+  //         if (xhr.status !== 200) {
+  //             console.log(`Ошибка ${xhr.status} ${xhr.statusText}`);
+  //         } else {
+  //             cd(xhr.responseText);
+  //         }
+  //     }
+
+  //     xhr.send();
+  //   })
+  //   .catch((error) => {
+  //     console.log(error);
+      
+  //   });
+
+  // }
 
   #fetchGoods() {
-    this.goods = [
-      {id: 1, title: 'Iphone', price: 10, img: 'https://img.mvideo.ru/Pdb/30047952m.jpg'},
-      {id: 2, title: 'Телевизор LG 24LK451V-PZ', price: 20, img: 'https://img.mvideo.ru/Pdb/10020719m.jpg'},
-      {id: 3, title: 'Телевизор Telefunken TF-LED32S15T2S', price: 30, img: 'https://img.mvideo.ru/Pdb/10024394m.jpg'},
-      {id: 4, title: 'Телевизор Samsung UE58TU7570U', price: 40, img: 'https://img.mvideo.ru/Pdb/10023930m.jpg'},
-    ];
+    getRequest(`${API}/CatalogTovarov.json`)
+    .then((url) => {
+
+      let xhr = new XMLHttpRequest();
+      xhr.open('GET', url, true);
+
+      xhr.onreadystatechange = () => {
+          if (xhr.readyState !== 4) return;
+          if (xhr.status !== 200) {
+              console.log(`Ошибка ${xhr.status} ${xhr.statusText}`);
+          } else {
+              this.goods = JSON.parse(xhr.responseText);
+              // console.log(this.goods);
+              this.#render();
+          }
+      }
+      xhr.send();
+    })
+    .catch((error) => {
+      console.log(error);
+    });
   }
 
   #render() {
