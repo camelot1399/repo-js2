@@ -3,12 +3,21 @@ const API = 'https://raw.githubusercontent.com/camelot1399/static/master';
 let getRequest = (url) => {
   return new Promise( (resolve, reject) => {
     setTimeout( () => {
-      if (url) {
-        resolve(url);
-      } else {
-        reject('no url');
+      let xhr = new XMLHttpRequest();
+      xhr.open('GET', url, true);
+
+      xhr.onreadystatechange = () => {
+          if (xhr.readyState !== 4) return;
+          if (xhr.status !== 200) {
+              reject(console.log(`Ошибка ${xhr.status} ${xhr.statusText}`));
+          } else {
+              resolve(JSON.parse(xhr.responseText));
+          }
       }
-    }, 1000);
+      xhr.send();
+      
+    })
+    
   });
 }
 
@@ -75,22 +84,9 @@ class ProductList {
 
   #fetchGoods() {
     getRequest(`${API}/CatalogTovarov.json`)
-    .then((url) => {
-
-      let xhr = new XMLHttpRequest();
-      xhr.open('GET', url, true);
-
-      xhr.onreadystatechange = () => {
-          if (xhr.readyState !== 4) return;
-          if (xhr.status !== 200) {
-              console.log(`Ошибка ${xhr.status} ${xhr.statusText}`);
-          } else {
-              this.goods = JSON.parse(xhr.responseText);
-              this.#render();
-          }
-      }
-      xhr.send();
-      
+    .then((result) => {
+      this.goods = result;
+      this.#render();
     })
     .catch((error) => {
       console.log(error);
