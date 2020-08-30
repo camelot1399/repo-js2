@@ -1,0 +1,43 @@
+.box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.box__header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box__body {
+
+}
+
+.box__toppingsList {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.box__toppingsList_right {
+    margin-left: 20px;
+}
+
+.box__toppingsList_left,
+.box__toppingsList_right {
+    display: flex;
+    flex-direction: column;
+}
+
+.box__footer {
+    border-top: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.box__price {
+    min-width: 300px;
+}
