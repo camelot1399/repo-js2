@@ -2,20 +2,52 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Интернет-магазин js2</title>
-    <link rel="stylesheet" href="style.css?1">
-    <script src="https://kit.fontawesome.com/690b398c9d.js" crossorigin="anonymous"></script>
+    <title>Интернет-магазин</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<header>
-    <button class="btn-cart" type="button">Корзина</button>
-</header>
-<main>
-    <div class="products center"></div>
-
-    <div id="basket" class="basket"></div>
-</main>
-<script src="./js/main.js"></script>
+<div id="app">
+    <header>
+        <div class="logo">Интернет-магазин</div>
+        <div class="cart">
+            <form action="#" class="search-form">
+                <input type="text" class="search-field" v-model="searchLine">
+                <button class="btn-search" type="submit" @click="FilterGoods()" v-on:submit.prevent="onSubmit">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+            <button @click="isVisibleCart=!isVisibleCart" class="btn-cart" type="button">Корзина</button>
+            <div v-if="isVisibleCart" class="cart-block">
+                {{ cart.length == 0 ? 'Нет данных' : '' }}
+                <div class="product-item" v-for="product of cart" :key="product.id_product">
+                    <img :src="imgCatalog" alt="Some img" >
+                    <div class="desc">
+                        <h3>{{product.product_name}}</h3>
+                        <p>Стомость 1 шт: {{product.price}}₽</p>
+                        <p>Кол-во: {{product.quantity}}</p>
+                        <p>Общая стоимость: {{product.price * product.quantity}}₽</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="products">
+            <div v-if="searchTovarNull">Товар не найден</div>
+            <div class="product-item" v-for="product of searchProducts" :key="product.id_product" :id="product.id_product">
+                <img :src="imgCatalog" alt="Some img" >
+                <div class="desc">
+                    <h3>{{product.product_name}}</h3>
+                    <p>{{product.price}}₽</p>
+                    <button class="buy-btn" @click="addProduct(product)">Купить</button>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+<script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
-
