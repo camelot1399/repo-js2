@@ -33,7 +33,7 @@ const app = new Vue({
   
     },
     FilterGoods() {
-      let find = this.products.findIndex(item => item.product_name.toLowerCase() == this.searchLine.toLowerCase());
+      let find = this.products.findIndex(item => item.product_name.toLowerCase() == this.searchLine.toLowerCase().trim());
 
       this.searchProducts = [];
       if (find != -1 && this.searchLine.length != 0) {
