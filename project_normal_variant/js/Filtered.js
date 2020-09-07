@@ -10,9 +10,9 @@ Vue.component('filterblock', {
     methods: {
 
     },
-    template: `<form action="#" class="search-form" @submit.prevent="">
+    template: `<form action="#" class="search-form" @submit.prevent="$root.$refs.products.filter(searchText)">
                     <input type="text" class="search-field" v-model="searchText">
-                    <button class="btn-search" type="submit" @click="$root.$refs.products.filter(searchText)">
+                    <button class="btn-search" type="submit">
                         <i class="fas fa-search"></i>
                     </button>
                 </form>`,
