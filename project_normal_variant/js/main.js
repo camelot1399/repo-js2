@@ -5,7 +5,7 @@ const app = new Vue({
     data: {
         userSearch: '',
         errorShow: false,
-        errorText: '112233',
+        errorText: [],
     },
     methods: {
         getJson(url){
@@ -15,7 +15,7 @@ const app = new Vue({
                     // console.log(error);
                     // активировать компонент ошибки
                     
-                    // this.errorText = error;
+                    this.errorText = error;
                     this.errorShow = true;
 
                 })

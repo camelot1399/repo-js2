@@ -1,9 +1,8 @@
 Vue.component('error', {
-    props: ['errorText'],
     data() {
         return {
-            text1: 'ошибка',
+            text1: 'Ошибка',
         }
     },
-    template: `<div class="errorBlock">{{text1}} {{errorText}}</div>`,
+    template: `<div class="errorBlock">{{text1}} {{$root.errorText}}</div>`,
 });
