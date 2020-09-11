@@ -4,6 +4,7 @@ Vue.component('catalog', {
             baseUrl: 'https://raw.githubusercontent.com/camelot1399/static/master/catalog.json',
             basketUrl: '../src/assets/imgs/basket.png',
             catalogItems: [],
+            basketAPI: this.$root.$refs.headerComponent.$refs.basket,
         }
     },
     method: {
@@ -19,7 +20,7 @@ Vue.component('catalog', {
     },
     template: `
                 <div>
-                <div id="catalog" class="catalot__product">
+                <div id="catalog" class="catalot__product" >
                     <div id="catalog__list" class="featuredItems__list">
 
                         <div class="featuredItems__item" v-for="item of catalogItems" :key="item.productId">
@@ -30,7 +31,7 @@ Vue.component('catalog', {
                                     </div>
                                 </a>
                                 <div class="featuredItems__hover">
-                                    <button class="featuredItems__link" name="add" @click="$root.$refs.headerComponent.$refs.basket.addProduct(item)">
+                                    <button class="featuredItems__link" name="add" @click="basketAPI.addProduct(item)">
                                         <img class="basket_featuredItems" src="src/assets/imgs/basket.png" alt="Корзина" >Add to Cart 
                                     </button>
                                 </div>
