@@ -9,8 +9,6 @@ const actions = {
 };
 
 const handler = (req, res, action, file) => { //handler(req, res, 'add', './server/db/userCart.json');
-  console.log(req);
-  
   fs.readFile(file, 'utf-8', (err, data) => {
     if (err) {
       res.sendStatus(404, JSON.stringify({result: 0, text: err}));

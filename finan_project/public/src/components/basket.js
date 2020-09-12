@@ -15,7 +15,7 @@ Vue.component('basket', {
                 this.$root.putJson(`/api/cart/${find.id}`, {quantity: 1});
                 find.quantity++; 
             } else {
-                let prod = Object.assign(product);
+                let prod = Object.assign({quantity: 1}, product);
                 this.$root.postJson('/api/cart', prod)
                   .then(data => {
                       if (data.result === 1) {
@@ -23,6 +23,19 @@ Vue.component('basket', {
                       }
                   });
             }
+        },
+        removeProduct(item) {
+            console.log('удаляю');
+            let find = this.basketItems.find(el => el.id === item.id);
+
+            if (find.quantity === 1) {
+                this.$root.deleteJson(`/api/cart/${find.id}`);
+                this.basketItems.splice(this.basketItems.indexOf(item), 1);
+            } else {
+                this.$root.putJson(`/api/cart/${find.id}`, {quantity: -1});
+                find.quantity--;
+            }
+            
         },
     },
     mounted(){
@@ -57,7 +70,7 @@ Vue.component('basket', {
                                         <div class="basket__item_stars"></div>
                                         <div class="basket__item_price"><span class="basket__item_amount">{{item.quantity}}</span> x  $ {{item.productPrice * item.quantity}}</div>
                                     </div>
-                                    <button class="fas fa-trash-alt basket__item_remove" name="delete" data-id="prod_1" data-index="prod_1" aria-hidden="true"></button>
+                                    <button  @click="removeProduct(item)" class="fas fa-trash-alt basket__item_remove" name="delete" data-id="prod_1" data-index="prod_1" aria-hidden="true"></button>
                                 </div>
                                 
                                 <div class="basket__footer">
