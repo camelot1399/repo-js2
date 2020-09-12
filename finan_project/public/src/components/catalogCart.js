@@ -1,4 +1,4 @@
-Vue.component('catalog', {
+Vue.component('catalogCart', {
     data() {
         return {
             baseUrl: 'https://raw.githubusercontent.com/camelot1399/static/master/catalog.json',
@@ -7,7 +7,7 @@ Vue.component('catalog', {
             basketAPI: this.$root.$refs.headerComponent.$refs.basket,
         }
     },
-    method: {
+    methods: {
         
     },
     mounted(){

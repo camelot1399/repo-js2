@@ -1,11 +1,14 @@
-Vue.component('catalog-container', {
+Vue.component('catalogbox', {
     data() {
         return {
            
         }
     },
-    method: {
-        
+    methods: {
+        lala() {
+            console.log('lala');
+            
+        },
     },
     mounted(){
        
@@ -181,7 +184,7 @@ Vue.component('catalog-container', {
                             
                         </nav>
 
-                        <catalog ref="catalog"></catalog>
+                        <catalogCart ref="catalogCart"></catalogCart>
                         
                         <div class="catalog__pagination">
                         

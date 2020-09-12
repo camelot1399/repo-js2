@@ -6,9 +6,23 @@ Vue.component('basket', {
             baseUrl: 'https://raw.githubusercontent.com/camelot1399/static/master/cartItems.json',
         }
     },
-    method: {
+    methods: {
         addProduct(product) {
-            console.log(product);
+            let find = this.basketItems.find(el => el.id === product.id);
+            if(find){
+                console.log(find.id);
+                
+                this.$root.putJson(`/api/cart/${find.id}`, {quantity: 1});
+                find.quantity++; 
+            } else {
+                let prod = Object.assign(product);
+                this.$root.postJson('/api/cart', prod)
+                  .then(data => {
+                      if (data.result === 1) {
+                          this.basketItems.push(prod);
+                      }
+                  });
+            }
         },
     },
     mounted(){
@@ -41,7 +55,7 @@ Vue.component('basket', {
                                     <div class="basket__item_information">
                                         <div class="basket__item_name">{{item.productName}}</div>
                                         <div class="basket__item_stars"></div>
-                                        <div class="basket__item_price"><span class="basket__item_amount">1</span> x  $ {{item.productPrice}}</div>
+                                        <div class="basket__item_price"><span class="basket__item_amount">{{item.quantity}}</span> x  $ {{item.productPrice * item.quantity}}</div>
                                     </div>
                                     <button class="fas fa-trash-alt basket__item_remove" name="delete" data-id="prod_1" data-index="prod_1" aria-hidden="true"></button>
                                 </div>

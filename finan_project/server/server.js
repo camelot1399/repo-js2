@@ -9,7 +9,7 @@ app.use('/', express.static('./public'));
 app.use('/api/cart', cartRouter);
 
 
-const port = process.env.PORT || 8081;
+const port = process.env.PORT || 8082;
 app.listen(port, () => {
   console.log(`Listening ${port} port`);
 });
