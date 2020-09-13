@@ -1,1 +1,9 @@
-[]
+[
+    {
+        "quantity": 1,
+        "productName": "Sugar  People  T-shirt",
+        "productPrice": "30",
+        "productImg": "https://raw.githubusercontent.com/camelot1399/static/master/img/catalot__product/3.png",
+        "id": 2
+    }
+]

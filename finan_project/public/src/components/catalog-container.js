@@ -5,10 +5,7 @@ Vue.component('catalogbox', {
         }
     },
     methods: {
-        lala() {
-            console.log('lala');
-            
-        },
+
     },
     mounted(){
        

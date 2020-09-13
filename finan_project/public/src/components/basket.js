@@ -48,8 +48,8 @@ Vue.component('basket', {
     },
     template: `
                 <div>
-                    <div class="basket" @click="showCart = !showCart">
-                        <div class="basket__icon">
+                    <div class="basket" >
+                        <div class="basket__icon" @click="showCart = !showCart">
                             <img src="../src/assets/imgs/basket_black.png" alt="Корзина">
                             <div id="BasketItems" class="ellips">{{this.basketItems.length}}</div>
                         </div>
@@ -74,9 +74,9 @@ Vue.component('basket', {
                                 </div>
                                 
                                 <div class="basket__footer">
-                                    <div class="basket__footer_total">total: $<span class="basketTotal">44</span></div>
-                                    <button class="btn basket__footer_checkout">CHECKOUT</button>
-                                    <button class="btn basket__footer_goToCart">GO TO CART</button>
+                                    <div class="basket__footer_total"></div>
+                                        <button class="btn basket__footer_checkout">CHECKOUT</button>
+                                        <button class="btn basket__footer_goToCart">GO TO CART</button>
                                 </div>
                             </div>
                         </div>
