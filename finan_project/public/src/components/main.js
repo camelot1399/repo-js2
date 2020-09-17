@@ -1,4 +1,37 @@
+const routes = [
+  {
+    path: '',
+    components: {
+      promo: promo,
+      promo2: promo2,
+      offer30: offer30,
+      subscribe: subscribe
+    }
+  },
+  { path: '/catalog', 
+    components: {
+      catalogbox: catalogbox,
+      breadcrumb: breadcrumb,
+      offer3list: offer3list,
+      subscribe: subscribe
+    } 
+  },
+  {
+    path: '/product_details',
+    components: {
+      userInfo: userInfo,
+      subscribe: subscribe
+    }
+  }
+]
+
+const router = new VueRouter({
+  mode: 'history',
+  routes
+})
+
 const app = new Vue({
+    router,
     el: '#app',
     data: {
         
@@ -50,5 +83,4 @@ const app = new Vue({
     mounted() {
         console.log(this);
     }
-});
-
+}).$mount('#app');

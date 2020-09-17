@@ -4,17 +4,19 @@ Vue.component('catalogCart', {
             baseUrl: 'https://raw.githubusercontent.com/camelot1399/static/master/catalog.json',
             basketUrl: '../src/assets/imgs/basket.png',
             catalogItems: [],
+            filteredItems: [],
             basketAPI: this.$root.$refs.headerComponent.$refs.basket,
         }
     },
     methods: {
-        
+       
     },
     mounted(){
         this.$root.getJson(this.baseUrl)
             .then(data => {
                 for(let el of data){
                     this.catalogItems.push(el);
+                    this.filteredItems = this.catalogItems;
                 }
             });
     },
@@ -23,7 +25,7 @@ Vue.component('catalogCart', {
                 <div id="catalog" class="catalot__product" >
                     <div id="catalog__list" class="featuredItems__list">
 
-                        <div class="featuredItems__item" v-for="item of catalogItems" :key="item.productId">
+                        <div class="featuredItems__item" v-for="item of filteredItems" :key="item.productId">
                             <div class="featuredItems__item_box">
                                 <a href="single_page.html" class="featuredItems__img_link">
                                     <div class="featuredItems__item_img">

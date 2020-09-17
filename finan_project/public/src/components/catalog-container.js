@@ -5,7 +5,7 @@ Vue.component('catalogbox', {
         }
     },
     methods: {
-
+       
     },
     mounted(){
        
@@ -181,7 +181,7 @@ Vue.component('catalogbox', {
                             
                         </nav>
 
-                        <catalogCart ref="catalogCart"></catalogCart>
+                        <catalogCart ref="catalogcart"></catalogCart>
                         
                         <div class="catalog__pagination">
                         

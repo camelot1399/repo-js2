@@ -13,26 +13,45 @@
     <div id="app">
         <header-component ref="headerComponent"></header-component>
         <navigation-top></navigation-top>
-        <breadcrumb></breadcrumb>
-        <catalogbox ref="catalogbox"></catalogbox>
+        <router-view name="promo"></router-view>
+        <router-view name="promo2"></router-view>
+        <router-view name="breadcrumb"></router-view>
+        <router-view name="catalogbox"></router-view>
+        <router-view name="userInfo"></router-view>
+        
+        <router-view name="offer3list"></router-view>
+        <router-view name="offer30"></router-view>
+        <router-view name="subscribe"></router-view>
+        <footer-component ref="footerComponent"></footer-component>
+
+
+        
     </div>
 
 
 
     <script defer src="https://kit.fontawesome.com/690b398c9d.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
     
-    
+    <script src="src/components/footer.js"></script>
     <script src="src/components/breadcrumb.js"></script>
     <script src="src/components/nav.js"></script>
     
     <script src="src/components/basket.js"></script>
+    <script src="src/components/filterCatalog.js"></script>
+    
     <script src="src/components/header.js"></script>
-    
-    
     <script src="src/components/catalogCart.js"></script>
     <script src="src/components/catalog-container.js"></script>
+    
+    <script src="src/components/components.js"></script>
+    <script src="src/components/breadcrumb_component.js"></script>
     <script src="src/components/main.js"></script>
+    
+    <!-- <script src="src/components/router.js"></script> -->
+    
+    
 </body>
 
 </html>

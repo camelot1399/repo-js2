@@ -10,10 +10,10 @@ Vue.component('basket', {
         addProduct(product) {
             let find = this.basketItems.find(el => el.id === product.id);
             if(find){
-                console.log(find.id);
+                this.$root.putJson(`/api/cart/${find.id}`, {quantity: 1}).then(() => {
+                    find.quantity++; 
+                });
                 
-                this.$root.putJson(`/api/cart/${find.id}`, {quantity: 1});
-                find.quantity++; 
             } else {
                 let prod = Object.assign({quantity: 1}, product);
                 this.$root.postJson('/api/cart', prod)
@@ -25,15 +25,18 @@ Vue.component('basket', {
             }
         },
         removeProduct(item) {
-            console.log('удаляю');
             let find = this.basketItems.find(el => el.id === item.id);
 
             if (find.quantity === 1) {
-                this.$root.deleteJson(`/api/cart/${find.id}`);
-                this.basketItems.splice(this.basketItems.indexOf(item), 1);
+                this.$root.deleteJson(`/api/cart/${find.id}`).then(() => {
+                    this.basketItems.splice(this.basketItems.indexOf(item), 1);
+                });
+                
             } else {
-                this.$root.putJson(`/api/cart/${find.id}`, {quantity: -1});
-                find.quantity--;
+                this.$root.putJson(`/api/cart/${find.id}`, {quantity: -1}).then(() => {
+                    find.quantity--;
+                });
+                
             }
             
         },
@@ -76,7 +79,8 @@ Vue.component('basket', {
                                 <div class="basket__footer">
                                     <div class="basket__footer_total"></div>
                                         <button class="btn basket__footer_checkout">CHECKOUT</button>
-                                        <button class="btn basket__footer_goToCart">GO TO CART</button>
+                                        <a class="btn basket__footer_goToCart" href="product_details">GO TO CART</a>
+                                        
                                 </div>
                             </div>
                         </div>

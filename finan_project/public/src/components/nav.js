@@ -4,7 +4,7 @@ Vue.component('navigation-top', {
                 <ul class="menu">
                     <li class="menu__item"><a href="index.html" class="menu__link" alt="Home">Home</a></li>
                     <li class="menu__item">
-                        <a href="catalog.html" class="menu__link" alt="Man">Man</a>
+                        <a href="catalog" class="menu__link" alt="Man">Man</a>
 
                         <div class="drop">
                             <div class="drop__flex">
@@ -70,7 +70,7 @@ Vue.component('navigation-top', {
                         </div>
                     </li>
                     <li class="menu__item">
-                        <a href="catalog.html" class="menu__link" alt="Women">Women</a>
+                        <a href="catalog" class="menu__link" alt="Women">Women</a>
 
                         <div class="drop">
                             <div class="drop__flex">
@@ -136,7 +136,7 @@ Vue.component('navigation-top', {
                         </div>
                     </li>
                     <li class="menu__item">
-                        <a href="catalog.html" class="menu__link" alt="Kids">Kids</a>
+                        <a href="catalog" class="menu__link" alt="Kids">Kids</a>
 
                         <div class="drop">
                             <div class="drop__flex">
@@ -202,7 +202,7 @@ Vue.component('navigation-top', {
                         </div>
                     </li>
                     <li class="menu__item">
-                        <a href="catalog.html" class="menu__link" alt="Accoseriese">Accoseriese</a>
+                        <a href="catalog" class="menu__link" alt="Accoseriese">Accoseriese</a>
 
                         <div class="drop">
                             <div class="drop__flex">
@@ -268,7 +268,7 @@ Vue.component('navigation-top', {
                         </div>
                     </li>
                     <li class="menu__item">
-                        <a href="catalog.html" class="menu__link" alt="Featured">Featured</a>
+                        <a href="catalog" class="menu__link" alt="Featured">Featured</a>
 
                         <div class="drop drop__last">
                             <div class="drop__flex">
@@ -334,7 +334,7 @@ Vue.component('navigation-top', {
                         </div>
                     </li>
                     <li class="menu__item ">
-                        <a href="catalog.html" class="menu__link" alt="Hot Deals">Hot Deals</a> 
+                        <a href="catalog" class="menu__link" alt="Hot Deals">Hot Deals</a> 
 
                         <div class="drop drop__last">
                             <div class="drop__flex">
