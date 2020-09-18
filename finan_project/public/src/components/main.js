@@ -1,6 +1,5 @@
 const routes = [
-  {
-    path: '',
+  { path: '',
     components: {
       promo: promo,
       promo2: promo2,
@@ -16,11 +15,17 @@ const routes = [
       subscribe: subscribe
     } 
   },
-  {
-    path: '/product_details',
+  { path: '/product_details',
     components: {
       userInfo: userInfo,
       subscribe: subscribe
+    }
+  },
+  {
+    path: '/single_page',
+    components: {
+      imageSlide: imageSlide,
+      catalogbox2: catalogbox
     }
   }
 ]

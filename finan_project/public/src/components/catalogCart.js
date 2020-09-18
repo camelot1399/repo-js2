@@ -27,7 +27,7 @@ Vue.component('catalogCart', {
 
                         <div class="featuredItems__item" v-for="item of filteredItems" :key="item.productId">
                             <div class="featuredItems__item_box">
-                                <a href="single_page.html" class="featuredItems__img_link">
+                                <a href="/single_page" class="featuredItems__img_link">
                                     <div class="featuredItems__item_img">
                                         <img :src="item.productImg" alt="" class="featuredItems__img">
                                     </div>
