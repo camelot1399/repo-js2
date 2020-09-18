@@ -5,6 +5,9 @@ Vue.component('imageSlide', {
             baseUrl: 'https://raw.githubusercontent.com/camelot1399/static/master/catalog.json',
             catalogItems: [],
             currentItem: [],
+            itemName: '',
+            itemImg: '',
+            itemPrice: '',
         }
     },
     methods: {
@@ -16,17 +19,24 @@ Vue.component('imageSlide', {
             for(let el of data){
                 this.catalogItems.push(el);
             }
-            this.currentItem.push(this.catalogItems.filter(el => el.id == this.cartId));
+            this.currentItem.push(this.catalogItems.find(el => el.id == this.cartId));
+
+            this.currentItem.forEach(el => {
+                console.log(el.id);
+                this.itemName = el.productName;
+                this.itemImg = el.productImg;
+                this.itemPrice = el.productPrice;
+            })
         });
 
-        console.log(this.currentItem);
         
+
     },
     template: `<section class="imageSlide">
        
                 <div class="imageSlide__box">
                     <div class="imageSlide__layer">
-                        <img src="src/assets/imgs/singlePage/2490.png" alt="">
+                        <img :src="this.itemImg" alt="">
                     </div>
                     <div class="imageSlide__arrow imageSlide__arrow_left"><i class="fas fa-angle-left" aria-hidden="true"></i></div>
                     <div class="imageSlide__arrow imageSlide__arrow_right"><i class="fas fa-angle-right" aria-hidden="true"></i></div>
@@ -35,7 +45,7 @@ Vue.component('imageSlide', {
                 <section class="productDescription center">
                     <div class="productDescription__box productDescription__box_center">
                         <span class="productDescription__box_span1">WOMEN COLLECTION</span>
-                        <h1 class="productDescription__box_h1">sddfd</h1>
+                        <h1 class="productDescription__box_h1">{{this.itemName}}</h1>
                         <span class="productDescription__star">
                             <img src="src/assets/imgs/singlePage/star.png" alt="star">
                         </span>

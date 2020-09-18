@@ -6,6 +6,7 @@ Vue.component('catalogCart', {
             catalogItems: [],
             filteredItems: [],
             basketAPI: this.$root.$refs.headerComponent.$refs.basket,
+            singlePageAPI: '/single_page?id=',
         }
     },
     methods: {
@@ -27,9 +28,9 @@ Vue.component('catalogCart', {
 
                         <div class="featuredItems__item" 
                                                         v-for="item of filteredItems" 
-                                                        :key="item.productId">
+                                                        :key="item.id">
                             <div class="featuredItems__item_box">
-                                <a href="/single_page?id=1" class="featuredItems__img_link">
+                                <a :href="'/single_page?id=' + item.id" class="featuredItems__img_link">
                                     <div class="featuredItems__item_img">
                                         <img :src="item.productImg" alt="" class="featuredItems__img">
                                     </div>
