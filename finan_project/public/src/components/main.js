@@ -25,7 +25,7 @@ const routes = [
     path: '/single_page',
     components: {
       imageSlide: imageSlide,
-      catalogbox2: catalogbox
+      catalogbox2: catalogCart
     }
   }
 ]

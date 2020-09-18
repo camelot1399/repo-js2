@@ -8,7 +8,7 @@ Vue.component('headerComponent', {
                 <header class="header center">
                     <div class="header__left">
                     <div class="logo"> 
-                        <a href="index.html" class="logo__link">
+                        <a href="/" class="logo__link">
                             <img src="../src/assets/imgs/logo.png" alt="BRAND" class="logo__img">BRAN 
                             <span class="logo__D">D</span> 
                         </a>

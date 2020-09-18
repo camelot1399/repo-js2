@@ -24,7 +24,7 @@
         <router-view name="userInfo"></router-view>
 
         <!-- url: single_page -->
-        <router-view name="imageSlide"></router-view>
+        <router-view name="imageSlide" ref="imageSlide"></router-view>
         <router-view name="catalogbox2"></router-view>
         
         <router-view name="offer3list"></router-view>
@@ -36,12 +36,11 @@
         
     </div>
 
-
-
     <script defer src="https://kit.fontawesome.com/690b398c9d.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
     
+    <script src="src/components/imageSlide.js"></script>
     <script src="src/components/footer.js"></script>
     <script src="src/components/breadcrumb.js"></script>
     <script src="src/components/nav.js"></script>
@@ -58,8 +57,6 @@
     <script src="src/components/main.js"></script>
     
     <!-- <script src="src/components/router.js"></script> -->
-    
-    
 </body>
 
 </html>

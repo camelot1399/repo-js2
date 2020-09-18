@@ -16,8 +16,8 @@ Vue.component('catalogCart', {
             .then(data => {
                 for(let el of data){
                     this.catalogItems.push(el);
-                    this.filteredItems = this.catalogItems;
                 }
+                this.filteredItems = this.catalogItems;
             });
     },
     template: `
@@ -25,9 +25,11 @@ Vue.component('catalogCart', {
                 <div id="catalog" class="catalot__product" >
                     <div id="catalog__list" class="featuredItems__list">
 
-                        <div class="featuredItems__item" v-for="item of filteredItems" :key="item.productId">
+                        <div class="featuredItems__item" 
+                                                        v-for="item of filteredItems" 
+                                                        :key="item.productId">
                             <div class="featuredItems__item_box">
-                                <a href="/single_page" class="featuredItems__img_link">
+                                <a href="/single_page?id=1" class="featuredItems__img_link">
                                     <div class="featuredItems__item_img">
                                         <img :src="item.productImg" alt="" class="featuredItems__img">
                                     </div>
