@@ -27,16 +27,16 @@ Vue.component('basket', {
         removeProduct(item) {
             let find = this.basketItems.find(el => el.id === item.id);
 
-            if (find.quantity === 1) {
-                this.$root.deleteJson(`/api/cart/${find.id}`).then(() => {
-                    this.basketItems.splice(this.basketItems.indexOf(item), 1);
-                });
-                
-            } else {
+            if (find.quantity > 1) {
                 this.$root.putJson(`/api/cart/${find.id}`, {quantity: -1}).then(() => {
                     find.quantity--;
                 });
-                
+            } else {
+                this.$root.deleteJson(`/api/cart/${find.id}`).then(data => {
+                    if (data.result === 1) {
+                        this.basketItems.splice(this.basketItems.indexOf(item), 1);
+                    }
+                });
             }
             
         },
