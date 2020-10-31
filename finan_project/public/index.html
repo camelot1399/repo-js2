@@ -1,62 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Интернет-магазин</title>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title><%= htmlWebpackPlugin.options.title %></title>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../src/layout/styles/style.css"> 
-</head>
-<body>
-
-    <div id="app">
-        <header-component ref="headerComponent"></header-component>
-        <navigation-top></navigation-top>
-        <router-view name="promo"></router-view>
-        <router-view name="promo2"></router-view>
-        
-        <!-- url: catalog -->
-        <router-view name="breadcrumb"></router-view>
-        <router-view name="catalogbox"></router-view>
-
-        <!-- url: product_details -->
-        <router-view name="userInfo"></router-view>
-
-        <!-- url: single_page -->
-        <router-view name="imageSlide" ref="imageSlide"></router-view>
-        <router-view name="catalogbox2"></router-view>
-        
-        <router-view name="offer3list"></router-view>
-        <router-view name="offer30"></router-view>
-        <router-view name="subscribe"></router-view>
-        <footer-component ref="footerComponent"></footer-component>
-
-
-        
-    </div>
-
-    <script defer src="https://kit.fontawesome.com/690b398c9d.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
-    
-    <script src="src/components/imageSlide.js"></script>
-    <script src="src/components/footer.js"></script>
-    <script src="src/components/breadcrumb.js"></script>
-    <script src="src/components/nav.js"></script>
-    
-    <script src="src/components/basket.js"></script>
-    <script src="src/components/filterCatalog.js"></script>
-    
-    <script src="src/components/header.js"></script>
-    <script src="src/components/catalogCart.js"></script>
-    <script src="src/components/catalog-container.js"></script>
-    
-    <script src="src/components/components.js"></script>
-    <script src="src/components/breadcrumb_component.js"></script>
-    <script src="src/components/main.js"></script>
-    
-    <!-- <script src="src/components/router.js"></script> -->
-</body>
-
+    <script src="https://kit.fontawesome.com/690b398c9d.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
 </html>
